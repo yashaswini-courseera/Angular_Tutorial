@@ -20,7 +20,7 @@ ShoppingListCheckOffService.removeitem(itemIndex);
   AlreadyBoughtController.$inject=["ShoppingListCheckOffService"];
 function AlreadyBoughtController(ShoppingListCheckOffService)
 {
-  
+
   var alreadyBoughtList = this;
   alreadyBoughtList.items =ShoppingListCheckOffService.showBoughtList();
 
