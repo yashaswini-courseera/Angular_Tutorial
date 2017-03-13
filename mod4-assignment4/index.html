@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app=MenuApp>
+  <head>
+    <meta charset="utf-8">
+    <title>Shrunga's good food</title>
+    <style>
+    div.button {
+      display:inline-block;
+      -webkit-appearance:button;
+      padding:3px 8px 3px 8px;
+      font-size:13px;
+      position:relative;
+      cursor:context-menu;
+      color: red;
+      background-color: pink;
+    }
+    </style>
+  </head>
+  <body>
+<h1>Welome to Shrunga's good food</h1>
+<ui-view></ui-view>
+<!--libraries  -->
+<script src="lib/angular.min.js"></script>
+<script src="lib/angular-ui-router.min.js"></script>
+
+<!--Modules  -->
+<script src="src/data/data.module.js"></script>
+<script src="src/menuapp/menuapp.module.js"></script>
+
+<!-- Routes -->
+    <script src="src/routes.js"></script>
+
+<!--Modules artifacts  -->
+
+<script src="src/menuapp/categorieslist.controller.js"></script>
+<script src="src/menuapp/categorylist.component.js"></script>
+<script src="src/menuapp/itemslist.controller.js"></script>
+<script src="src/menuapp/itemslist.component.js"></script>
+<script src="src/data/menudata.service.js"></script>
+
+
+
+  </body>
+</html>

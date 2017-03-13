@@ -1,0 +1,16 @@
+<style>
+li[ui-sref]:hover {
+  display: inline-block;
+  cursor: pointer;
+  border: solid red 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: pink;
+  border-radius: 25px;
+}
+</style>
+<ul>
+  <li ng-repeat = "item in $ctrl.items"   ui-sref="itemsList({category:item.short_name})">
+    {{ item.name }}
+  </li>
+</ul>
