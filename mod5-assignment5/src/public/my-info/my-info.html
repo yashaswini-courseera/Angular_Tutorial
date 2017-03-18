@@ -1,0 +1,30 @@
+<style>
+    .favmenu-item-photo {
+        position: relative;
+        border: 2px solid #3F0C1F;
+        overflow: hidden;
+        padding: 0;
+        margin-right: -15px;
+        margin-top: 20px;
+        /* margin-left: auto; */
+        margin-bottom: 20px;
+        max-width: 250px;
+    }
+</style>
+<div class="container">
+    <div id="info" ng-if="myInfoCtrl.data.hasData">
+        Username: {{myInfoCtrl.data.firstName}} {{ myInfoCtrl.data.lastName }} <br> Email: {{myInfoCtrl.data.email }} <br> Phone: {{myInfoCtrl.data.phone }}<br>
+        <h3>Your Favourite item is:</h3>
+        <div class="favmenu-item-photo">
+            <!-- <div>{{myInfoCtrl.data.favItem}}</div> -->
+            <img class="img-responsive" width="250" height="150" ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.data.favItem.toUpperCase()}}.jpg" alt="{{myInfoCtrl.data.title}}">
+        </div>
+        <div class="menu-item-description col-sm-7">
+            <h3 class="menu-item-title">{{myInfoCtrl.data.title}}</h3>
+            <p class="menu-item-details">{{myInfoCtrl.data.description}}</p>
+        </div>
+    </div>
+    <span ng-hide="myInfoCtrl.data.hasData">
+      Not Signed Up Yet.<a ui-sref="public.signup"> Sign up Now!</a>
+    </span>
+</div>

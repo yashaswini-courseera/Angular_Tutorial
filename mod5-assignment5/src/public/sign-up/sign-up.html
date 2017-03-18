@@ -1,0 +1,53 @@
+<style>
+    input {
+        font-size: 1.2em;
+        color: black;
+        margin-bottom: 10px;
+    }
+
+    legend {
+        color: white;
+        font-size: 1.2em;
+    }
+
+    button {
+        color: black;
+        font-size: 1.4em;
+    }
+</style>
+<fieldset>
+    <legend class="legend">Sign Up for our News letter!</legend>
+    <form name='signupform' novalidate>
+
+        <input type="text" placeholder="Your Firstname" name="first_name" ng-model="signUpCtrl.user.fname" required minlength="5" ng-maxlength="10"></input>
+        <span ng-if="(signupform.first_name.$error.minlength ||signupform.first_name.$error.required)&&signupform.first_name.$touched">
+  First name must be at least 5 characters long</span>
+        <span ng-if="signupform.first_name.$error.maxlength && signupform.first_name.$touched">
+            First name must not be longer than 10 characters
+          </span>
+        <br>
+        <input type="text" placeholder="Your Lastname" name="last_name" ng-model="signUpCtrl.user.lname" required minlength="5" ng-maxlength="10"></input>
+        <span ng-if="(signupform.last_name.$error.minlength ||signupform.last_name.$error.required)&&signupform.last_name.$touched">
+  Last name must be at least 5 characters long</span>
+        <span ng-if="signupform.last_name.$error.maxlength && signupform.last_name.$touched">
+            Last name must not be longer than 10 characters
+          </span>
+        <br>
+        <input type="email" placeholder="Your email address" name="email" ng-model="signUpCtrl.user.email" required></input>
+        <span ng-if="signupform.email.$invalid && signupform.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+        <br>
+        <input type="text" placeholder="Phone" name="phone" ng-model="signUpCtrl.user.phone" pattern="(\d{3})-(\d{3})-(\d{4})">
+        <span ng-if="signupform.phone.$invalid && signupform.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+        <br>
+        </input>
+        <input type="text" placeholder="Your favourite menu item" name="favourite_item" ng-model="signUpCtrl.user.favItem"></input>
+        <span ng-if="signUpCtrl.favItemInvalid">No such menu number exists</span>
+        <br>
+        <button ng-disabled="signupform.$invalid" ng-click="signUpCtrl.submit()">Submit</button>
+        <span ng-if="signUpCtrl.completed && signupform.$valid && (signUpCtrl.favItemInvalid===false)">Your information is saved</span>
+    </form>
+</fieldset>
